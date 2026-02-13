@@ -2,11 +2,11 @@ import { JSONCookie } from 'cookie-parser';
 import { query } from 'express';
 import mysql from 'mysql2/promise';
 export const pool = mysql.createPool({
-  host: "gondola.proxy.rlwy.net",       // ✅ Updated Host
-  port: 53923,                           // ✅ Updated Port
-  user: "root",                          // ✅ Username
-  password: "ayYnhfmRlqfMcIlYXfxPPdjgJAZrAuUC", // ✅ Password
-  database: "railway",                  // ✅ Database Name
+  host: process.env.MYSQLHOST,
+  port: parseInt(process.env.MYSQLPORT),
+  user: process.env.MYSQLUSER,
+  password: process.env.MYSQLPASSWORD,
+  database: process.env.MYSQLDATABASE,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
